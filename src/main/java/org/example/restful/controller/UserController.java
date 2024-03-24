@@ -1,6 +1,7 @@
 package org.example.restful.controller;
 
 
+import jakarta.validation.Valid;
 import org.example.restful.bean.User;
 import org.example.restful.dao.UserDaoService;
 import org.example.restful.exception.UserNotFoundException;
@@ -38,7 +39,7 @@ public class UserController {
     //input - details of user
     // output -  CREATED & Return the created URI
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@RequestBody User user){
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user){
         User savedUser = service.save(user);
 
         //201번 나옴
@@ -47,6 +48,7 @@ public class UserController {
                 .path("/{id}")
                 .buildAndExpand(savedUser.getId())
                 .toUri();
+
         return ResponseEntity.created(location).build();
     }
 
