@@ -23,12 +23,9 @@ public class HelloWorldController {
         return new HelloWorldBean("Hello World!"); // 객체로 반환하면 자동으로 스프링부트에서 JSON형식으로 변환해서 반환됨
     }
 
-
     @GetMapping(path = "/hello-world-bean/path-variable/{name}")
     public HelloWorldBean helloworldBeanPathVariable(@PathVariable String name){
         return new HelloWorldBean(String.format("Hello World!, %s",name)); // 객체로 반환하면 자동으로 스프링부트에서 JSON형식으로 변환해서 반환됨
     }
-
-
 }
 
