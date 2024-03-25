@@ -34,7 +34,8 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
     }
 
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode
+            status, WebRequest request) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(),
                 ex.getMessage(), ex.getBindingResult().toString());
 
